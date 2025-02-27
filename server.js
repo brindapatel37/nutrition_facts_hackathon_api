@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Endpoint to fetch nutrition data from Nutritionix API
-app.post("/api/nutrition", async (req, res) => {
+app.post("/nutrition", async (req, res) => {
   const { query } = req.body; // The food item you want to search for
 
   try {
