@@ -1,12 +1,10 @@
 import express from "express";
 const router = express.Router();
-import fs from "fs";
-import crypto from "crypto";
 import cors from "cors";
 import "dotenv/config";
 import axios from "axios";
 
-const {PORT, BACKEND_URL, APP_ID, APP_KEY} = process.env;
+const { PORT, BACKEND_URL, APP_ID, APP_KEY } = process.env;
 const app = express();
 app.use(cors());
 
@@ -14,12 +12,14 @@ app.use(express.json());
 
 // Endpoint to fetch nutrition data from Nutritionix API
 app.post("/api/nutrition", async (req, res) => {
-  const { query } = req.body;  // The food item you want to search for
-  
+  const { query } = req.body; // The food item you want to search for
+
   try {
-    const response = await axios.post(`${BACKEND_URL}/natural/nutrients`,
+    const response = await axios.post(
+      `${BACKEND_URL}/natural/nutrients`,
       {
-        query: query},
+        query: query,
+      },
       {
         headers: {
           "Content-Type": "application/json",
